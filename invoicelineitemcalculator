@@ -1,0 +1,33 @@
+def get_price():
+    while True:
+        try:
+            price = float(input("Enter the price: "))
+            return price
+        except ValueError:
+            print("Invalid input. Please enter a valid price.")
+def get_quantity():
+    while True:
+        try:
+            quantity = int(input("Enter the quantity: "))
+            return quantity
+        except ValueError:
+            print("Invalid input. Please enter a valid quantity.")
+def calculate_total(price, quantity):
+    return price * quantity
+def main():
+    print("The Invoice Line Item Calcilator!\n")
+    while True:
+        price = get_price()
+        quantity = get_quantity()
+        total = calculate_total(price, quantity)
+        print(f"Price: ${price:.2f}")
+        print(f"Quantity: ${quantity:.2f}")
+        print(f"Total: ${total:.2f}")
+        choice = input("Do you want to enter another line item? (y/n): ").strip().lower()
+        if choice != 'y':
+            break
+    print("Thank you for using InvoiceLineItemCalculator!")
+if __name__ == "__main__":
+    main()
+
+
